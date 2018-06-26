@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+
+
+{% block content_block %}
+	<section class="content-header">
+      <h1>
+        Agregar nuevo sujeto
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'userprofiles:home' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Nuevo registro</li>
+      </ol>
+    </section>
+    <section id="content-detail" class="content">
+    	<div class="row">
+    		  <div class="col-md-6">
+    			{% include 'persons/includes/partial_person_detail.html' %}
+	        </div>
+	        <div id="button-enabled" class="col-md-6">
+	        	{% include 'persons/includes/partial_person_button_enabled.html' %}
+	        </div>
+    	</div>
+      <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">subiendo...</h4>
+              </div>
+              <div class="modal-body">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal fade" id="modal-person">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   
+                </div>
+            </div>
+      </div>
+    </section>
+
+{% endblock %}
+
+{% block javascript_block %}
+<script src="{% static 'js/jquery.inputmask.js' %}"></script>
+<script src="{% static 'js/jquery.inputmask.date.extensions.js' %}"></script>
+<script src="{% static 'js/jquery.inputmask.extensions.js' %}"></script>
+
+<script src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'js/person-js.js' %}"></script>
+<script>
+  $(function () {
+ 	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/aaaa' })
+   })
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+<form method="post" action="{% url 'persons:person_update' form.instance.pk %}" class="js-person-update-form">
+  
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Acutalizar Datos</h4>
+  </div>
+  <div class="modal-body">
+    {% include 'persons/includes/partial_person_form_update.html' %}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </div>
+</form>

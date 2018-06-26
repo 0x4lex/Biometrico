@@ -1,0 +1,13 @@
+					<div class="box box-success">
+			            <div class="box-header with-border">
+			              <h3 class="box-title"></h3>
+			            </div>
+			            <div id="box-body-detail" class="box-body">
+			            	 {% include 'persons/includes/partial_box_body_detail.html' %}
+			            </div>
+		          	</div>
+		          	<div class="box-footer">
+	                	<a  href="{% url 'userprofiles:home' %}" class="btn btn-default">Cancelar</a>
+	                	<button type="button" data-url="{% url 'persons:person_update' person.pk %}" 
+	                	class="btn btn-info pull-right js-update-person">Editar</button>
+	              	</div>

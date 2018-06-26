@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+
+
+{% block content_block %}
+
+	
+     <section class="content-header">
+      <h1>
+        Lista personas registradas
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'userprofiles:home' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Identificar</li>
+      </ol>
+    </section>
+ 	 <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NOMBRE</th>
+                  <th>APELLIDO</th>
+                  <th>FECHA ALTA</th>
+                  <th>FECHA NACIMEINTO</th>
+                  <th>SEXO</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                	{% for person in persons %}
+               			 <tr>
+
+                		<td>{{ person.id_person}}</td>
+                  		<td>{{ person.name}}</td>
+                  		<td>{{ person.last_name}}</td>
+		                <td>{{ person.created_at}}</td>
+		                <td>{{ person.date_birth}}</td>
+		                <td>{{ person.get_sex_display}}</td>
+
+		                </tr>
+                	{% endfor %}
+                  
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>ID</th>
+                  <th>NOMBRE</th>
+                  <th>APELLIDO</th>
+                  <th>FECHA ALTA</th>
+                  <th>FECHA NACIMEINTO</th>
+                  <th>SEXO</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+{% endblock %}
+
+{% block javascript_block %}
+
+<script src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<!-- SlimScroll -->
+<script src="{% static 'js/jquery.slimscroll.min.js' %}"></script>
+<!-- FastClick -->
+<script src="{% static 'js/fastclick.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'js/demo.js' %}"></script>
+<!-- page script -->
+<script>
+  $(function () {
+    $('#example1').DataTable({
+       
+        colReorder: true,
+        ordering: true,
+        aaSorting: [],
+        language: {            
+            'search': '',
+            'searchPlaceholder': 'Buscar',
+            "sProcessing":     "Procesando...",
+            "sLengthMenu":     "Mostrar _MENU_ registros",
+            "sZeroRecords":    "No se encontraron resultados",
+            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+            "sInfoPostFix":    "",
+            "sSearch":         "Buscar:",
+            "sUrl":            "",
+            "sInfoThousands":  ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst":    "Primero",
+                "sLast":     "Último",
+                "sNext":     "Siguiente",
+                "sPrevious": "Anterior"
+            },
+            "oAria": {
+                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            }
+        }
+       
+    })
+  })
+</script>
+
+{% endblock %}

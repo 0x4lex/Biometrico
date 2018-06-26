@@ -1,0 +1,27 @@
+{% csrf_token %}
+							<span class="help-block">{{ form_message }}</span> 
+			            	<div class="form-group">
+			            	<label for="exampleInputEmail1">REGISTRO UNICO</label>
+				            {{form.id_person}}
+				            <span class="help-block">{{ form.id_person.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">NOMBRE</label>
+			            	{{form.name}}
+				            <span class="help-block">{{ form.name.errors }}</span> 
+				            </div>	
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">APELLIDO</label>
+				            {{form.last_name}}
+				            <span class="help-block">{{ form.last_name.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">FECHA NACIMIENTO</label>
+				            {{form.date_birth}}
+				            <span class="help-block">{{ form.date_birth.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">SEXO</label>
+				           	{{form.sex}}
+				            <span class="help-block">{{ form.sex.errors }}</span> 
+				            </div>

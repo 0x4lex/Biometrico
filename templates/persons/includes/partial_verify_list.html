@@ -1,0 +1,41 @@
+					<div id="person_list" class="box box-success">
+			           <div class="box-header with-border">
+			              <h3 class="box-title"></h3>
+			              <div class="box-tools pull-left">
+			              	<span class="label label-primary">{{ person_list.count }}</span>
+			              </div>
+			            </div>
+			            <div id="box-body-detail" class="box-body no-padding">
+			            	<ul class="users-list clearfix">
+   									<li>
+   										{% with person.face_set.all|first as imagen %}
+										 <img src="{{ imagen.img.crop.160x160 }}"  alt="User Image">
+										{% endwith %} 
+				                      
+				                      <a class="users-list-name" href="#">{{ person.name}} {{ person.last_name}}</a>
+				                      <span class="users-list-date">{{ person.date_birth}}</span>
+				                    </li>
+			                </ul>
+			            		</br>
+			            		</br>
+			            </div>
+
+		          	</div>
+		          	<div class="box box-solid">
+			            <div class="box-body">
+			            	<dl class="dl-horizontal">
+				                <dt>ID:</dt>
+				                <dd>{{ person.id_person}}</dd>
+				                <dt>NOMBRE: </dt>
+				                <dd>{{person.name}}</dd>
+				                <dt>APELLIDO:</dt>
+				                <dd>{{person.last_name}}</dd>
+				                <dt>SEXO: </dt>
+				                <dd>{{person.get_sex_display}}
+				                </dd>
+				                <dt>REGISTRADO EN: </dt>
+				                <dd>{{person.created_at}}
+				                </dd>
+				              </dl>
+			            </div>
+			        </div>

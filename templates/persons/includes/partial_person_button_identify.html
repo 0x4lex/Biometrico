@@ -1,0 +1,47 @@
+				<div class="box box-success">
+	        		<div class="row">
+	        			<div class="col-md-6 col-xs-6">
+	        				<div class="small-box bg-green">
+					            <div id="face_count" class="inner">
+					              <h3>Foto</h3>
+
+					              <p>Identificar con Foto</p>
+					            </div>
+					            <div class="icon">
+					              <i class="ion ion-ios-camera"></i>
+					            </div>
+					            <a href="#"  class="small-box-footer js-upload-photo">Identificar  <i class="fa fa-arrow-circle-right"></i></a>
+					            <input id="fileupload" type="file" name="img" multiple
+							       style="display: none;"
+							       data-url="{% url 'persons:person_identify_by_face'%}"
+							       data-form-data='{"csrfmiddlewaretoken": "{{ csrf_token }}"}'>
+				          	</div>
+	        			</div>
+	        			<div class="col-md-6 col-xs-6">
+	        				<div class="small-box bg-green">
+					            <div class="inner">
+					              <h3>Huella</h3>
+
+					              <p>Identificar con huella</p>
+					            </div>
+					            <div class="icon">
+					              <i class="ion ion-android-hand"></i>
+					            </div>
+				            	<a href="#" class="small-box-footer js-upload-fingerprint">Identificar  <i class="fa fa-arrow-circle-right"></i></a>
+				          	</div>
+	        			</div>
+	        			<div class="col-md-6 col-xs-6">
+	        				<div class="small-box bg-green">
+					            <div class="inner">
+					              <h3>Iris</h3>
+
+					              <p>Identificar con Iris</p>
+					            </div>
+					            <div class="icon">
+					              <i class="ion ion-ios-eye"></i>
+					            </div>
+				            	<a href="#" class="small-box-footer js-upload-iris">Identificar  <i class="fa fa-arrow-circle-right"></i></a>
+				          	</div>
+	        			</div>
+	        		</div>
+	          	</div>

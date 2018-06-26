@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block content_block %}
+ 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Dashboard
+        <small></small>
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section id="content-button" class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="row">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>Registro</h3>
+
+              <p>Registar sujeto</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="{% url 'persons:person_create' %}" class="small-box-footer">Nuevo registro <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>Identificar</h3>
+
+              <p>MATCH 1 A MUCHOS</p>
+            </div>
+            <div class="icon">
+              <div class="row ">
+              <i class="ion ion-person"></i>
+              <i class="ion ion-arrow-right-c"></i>
+              <i class="ion ion-person-stalker"></i>
+              </div>
+              
+            </div>
+            <a href="{% url 'persons:person_identify' %}" class="small-box-footer">buscar match <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>Comparar</h3>
+
+              <p>MATCH 1 A 1</p>
+            </div>
+            <div class="icon">
+              <div class="row">
+                <i class="ion ion-person"></i>
+                <i class="ion ion-arrow-swap"></i>
+                <i class="ion ion-person"></i>
+              </div>
+            </div>
+            <a href="#" class="small-box-footer js-search-person">Comparar <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{person_count}}</h3>
+
+              <p>Registros</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-filing"></i>
+            </div>
+            <a href="{% url 'persons:person_list' %}" class="small-box-footer">Ver lista <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <!-- /.row -->
+      
+
+    </section>
+    <!-- /.content -->
+    <div class="modal fade" id="modal-person">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                   <form method="get" action="{% url 'persons:person_search' %}" class="js-person-search-form">
+                                  
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">Buscar persona</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <input  id="search_box" class="form-control input-lg" type="text" name="search_box"  placeholder=" id ..." >
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                  </div>
+                                </form>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript_block %}
+<script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'js/home.js' %}"></script>
+
+</script>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+
+
+{% block content_block %}
+	<section class="content-header">
+      <h1>
+        {{person.name }} {{person.last_name}}
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'userprofiles:home' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">comparar</li>
+      </ol>
+    </section>
+    <section id="content-detail" class="content">
+    	<div class="row">
+    		  <div class="col-md-6">
+    			 {% include 'persons/includes/partial_person_button_verify.html' %}
+	        </div>
+	        <div class="col-md-6">
+	        	{% include 'persons/includes/partial_verify_list.html' %}
+	        </div>
+    	</div>
+      <div class="row margin-bottom">
+                    <div class="col-sm-6">
+                      <div class="row">
+                        <div id="photo_scream"class="col-sm-6">
+                          
+                        </div>
+                        <div id="canvas_photo" class="col-sm-6">
+                            <canvas class="img-responsive" id="myCanvas" width="700" height="700" >
+                        </div>
+                      
+                      </div>
+                    </div>
+                    
+                   
+      </div>
+
+      
+      <div class="modal fade" id="modal-progress" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Uploading...</h4>
+              </div>
+              <div class="modal-body">
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 0%;">0%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascript_block %}
+
+<script src="{% static 'js/vendor/jquery.ui.widget.js' %}"></script>
+<script src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+<script src="{% static 'js/jquery.fileupload.js' %}"></script>
+<script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+<script src="{% static 'js/person-verify.js' %}"></script>
+
+{% endblock %}

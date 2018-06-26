@@ -1,0 +1,40 @@
+				<form method="post" action="" >
+    				{% csrf_token %}
+		    		<div class="box box-success">
+			            <div class="box-header with-border">
+			              <h3 class="box-title"></h3>
+			            </div>
+			            <div class="box-body">
+			            	<span class="help-block">{{ form_message }}</span> 
+			            	<div class="form-group">
+			            	<label for="exampleInputEmail1">REGISTRO UNICO</label>
+				            {{form.id_person}}
+				            <span class="help-block">{{ form.id_person.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">NOMBRE</label>
+			            	{{form.name}}
+				            <span class="help-block">{{ form.name.errors }}</span> 
+				            </div>	
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">APELLIDO</label>
+				            {{form.last_name}}
+				            <span class="help-block">{{ form.last_name.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">FECHA NACIMIENTO</label>
+				            {{form.date_birth}}
+				            <span class="help-block">{{ form.date_birth.errors }}</span> 
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">SEXO</label>
+				           	{{form.sex}}
+				            <span class="help-block">{{ form.sex.errors }}</span> 
+				            </div>
+			            </div>
+		          	</div>
+		          	<div class="box-footer">
+	                	<a  href="{% url 'userprofiles:home' %}" class="btn btn-default">Cancelar</a>
+	                	<button type="submit" class="btn btn-info pull-right">Guardar cambios</button>
+	              	</div>
+	          	</form>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %} 
+
+
+{% block content_block %}
+	<section class="content-header">
+      <h1>
+        Agregar nuevo sujeto
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{% url 'userprofiles:home' %}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Nuevo registro</li>
+      </ol>
+    </section>
+    <section class="content">
+    	<div class="row">
+    		<div class="col-md-6">
+    			{% include 'persons/includes/partial_person_form.html' %}
+	        </div>
+	        <div class="col-md-6">
+	        	{% include 'persons/includes/partial_person_button_disabled.html' %}
+	        </div>
+    	</div>
+    </section>
+
+{% endblock %}
+
+{% block javascript_block %}
+<script src="{% static 'js/jquery.inputmask.js' %}"></script>
+<script src="{% static 'js/jquery.inputmask.date.extensions.js' %}"></script>
+<script src="{% static 'js/jquery.inputmask.extensions.js' %}"></script>
+<script>
+  $(function () {
+ 	$('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/aaaa' })
+   })
+</script>
+{% endblock %}

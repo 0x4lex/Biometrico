@@ -1,0 +1,20 @@
+							<div class="form-group">
+			            	<label for="exampleInputEmail1">REGISTRO UNICO: </label>
+				            {{person.id_person}}
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">NOMBRE: </label>
+			            	{{person.name}}
+				            </div>	
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">APELLIDO: </label>
+				            {{person.last_name}}
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">FECHA NACIMIENTO: </label>
+				            {{person.date_birth}}
+				            </div>
+				            <div class="form-group">
+			            	<label for="exampleInputEmail1">SEXO: </label>
+				           	{{person.get_sex_display}}
+				            </div>
